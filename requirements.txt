@@ -1,0 +1,15 @@
+# General dependencies
+pandas==1.5.3
+numpy==1.24.3
+matplotlib==3.7.1
+seaborn==0.12.2
+
+# Machine Learning dependencies
+scikit-learn==1.2.2
+joblib==1.2.0
+
+# Time series analysis
+statsmodels==0.14.0
+
+# Streamlit for web app
+streamlit==1.22.0
