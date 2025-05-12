@@ -9,7 +9,7 @@ import numpy as np
 st.set_page_config(page_title="Climate Prediction App", layout="wide")
 
 # Load data and models
-data_path = 'tanzania_climate_data_cleaned_dataset.csv'
+data_path = 'data/tanzania_climate_data_cleaned_dataset.csv'
 model_path = 'random_forest_model.pkl'
 data = pd.read_csv(data_path)
 model = joblib.load(model_path)
