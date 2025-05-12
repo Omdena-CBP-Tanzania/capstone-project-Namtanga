@@ -38,11 +38,18 @@ input_data = pd.DataFrame({
     'Min_Temperature_C': [min_temp]
 })
 
+# Align input_data columns with the model's expected feature names
+expected_features = model.feature_names_in_  # Features the model expects
+input_data_aligned = input_data.reindex(columns=expected_features, fill_value=0)
+
 # Prediction
 st.sidebar.subheader("Prediction")
 if st.sidebar.button("Predict"):
-    prediction = model.predict(input_data)[0]
-    st.sidebar.write(f"Predicted Average Temperature (°C): {prediction:.2f}")
+    try:
+        prediction = model.predict(input_data_aligned)[0]
+        st.sidebar.write(f"Predicted Average Temperature (°C): {prediction:.2f}")
+    except Exception as e:
+        st.sidebar.error(f"Error during prediction: {e}")
 
 # Main Page - Visualizations
 st.header("Exploratory Data Analysis")
